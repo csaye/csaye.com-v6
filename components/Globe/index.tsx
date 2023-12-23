@@ -1,14 +1,18 @@
 import styles from './styles.module.scss'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { useTransform, useScroll, motion, easeOut } from 'framer-motion'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { useTransform, useScroll, motion, easeOut, clamp } from 'framer-motion'
 import { degreesToRadians } from 'popmotion'
 import { Center, Text3D } from '@react-three/drei'
+import { useState } from 'react'
+import { useWindowResize } from '@/hooks/useWindowResize'
 
 const color = '#eeeeee'
 
 const scrollRange = [0, 0.2]
 
 function Scene() {
+  const [size] = useState(Math.min(1, window.innerWidth / 1000))
+
   const { scrollYProgress } = useScroll()
   const xAngle = useTransform(scrollYProgress, scrollRange, [
     degreesToRadians(0),
@@ -34,7 +38,7 @@ function Scene() {
 
   return (
     <Center>
-      <Text3D font='/fonts/Inter_Bold.json' position={[0, 0, 0]}>
+      <Text3D font='/fonts/Inter_Bold.json' position={[0, 0, 0]} size={size}>
         Cooper Saye
         <meshBasicMaterial wireframe color={color} />
       </Text3D>

@@ -24,6 +24,10 @@ export default function Index() {
   const topC = useTransform(scrollYProgress, intervalC, topInterval)
   const opacityC = useTransform(scrollYProgress, intervalC, opacityInterval)
 
+  const scaleA = useTransform(scrollYProgress, [0.25, 0.35], [0, 1])
+  const scaleB = useTransform(scrollYProgress, [0.45, 0.55], [0, 1])
+  const scaleC = useTransform(scrollYProgress, [0.65, 0.75], [0, 1])
+
   const footerOpacity = useTransform(scrollYProgress, [0.9, 1], [0, 1])
 
   return (
@@ -32,21 +36,30 @@ export default function Index() {
       <div className={styles.hero}>
         <Globe />
       </div>
-      <div className={styles.section}>
-        <motion.h1 style={{ top: topA, opacity: opacityA }}>
-          Software Engineer
-        </motion.h1>
-      </div>
-      <div className={styles.section}>
-        <motion.h1 style={{ top: topB, opacity: opacityB }}>
-          Venture Partner
-        </motion.h1>
-      </div>
-      <div className={styles.section}>
-        <motion.h1 style={{ top: topC, opacity: opacityC }}>
-          Computer Science Student
-        </motion.h1>
-      </div>
+      <motion.div
+        className={styles.rampSection}
+        style={{ top: topA, opacity: opacityA }}
+      >
+        <h1>Software Engineer</h1>
+        <motion.div className={styles.underline} style={{ scaleX: scaleA }} />
+        <p>Ramp</p>
+      </motion.div>
+      <motion.div
+        className={styles.contrarySection}
+        style={{ top: topB, opacity: opacityB }}
+      >
+        <h1>Venture Partner</h1>
+        <motion.div className={styles.underline} style={{ scaleX: scaleB }} />
+        <p>Contrary</p>
+      </motion.div>
+      <motion.div
+        className={styles.michiganSection}
+        style={{ top: topC, opacity: opacityC }}
+      >
+        <h1>Computer Science</h1>
+        <motion.div className={styles.underline} style={{ scaleX: scaleC }} />
+        <p>University of Michigan</p>
+      </motion.div>
       <motion.div style={{ opacity: footerOpacity }} className={styles.footer}>
         <h1>Cooper Saye</h1>
       </motion.div>

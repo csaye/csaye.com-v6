@@ -1,4 +1,7 @@
 $circle-size: 40px;
+$ramp: #1c1b18;
+$contrary: #fefcff;
+$michigan: #f7cb46;
 
 .container {
   height: 1000vh;
@@ -9,12 +12,50 @@ $circle-size: 40px;
     z-index: -1;
   }
 
-  > .section {
+  > .rampSection,
+  > .contrarySection,
+  > .michiganSection {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
     > h1 {
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+      white-space: nowrap;
+    }
+
+    > .underline {
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      transform-origin: 0%;
+      margin: 8px 0;
+    }
+  }
+
+  > .rampSection {
+    color: $ramp;
+
+    > .underline {
+      background: $ramp;
+    }
+  }
+
+  > .contrarySection {
+    color: $contrary;
+
+    > .underline {
+      background: $contrary;
+    }
+  }
+
+  > .michiganSection {
+    color: $michigan;
+
+    > .underline {
+      background: $michigan;
     }
   }
 
