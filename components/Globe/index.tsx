@@ -1,27 +1,35 @@
 import styles from './styles.module.scss'
 import { Canvas, useThree, useFrame } from '@react-three/fiber'
-import { useRef, useLayoutEffect } from 'react'
-import { useTransform, useScroll, useTime } from 'framer-motion'
+import { useRef, useLayoutEffect, Fragment } from 'react'
+import { useTransform, useScroll, useTime, motion } from 'framer-motion'
 import { degreesToRadians, progress, mix } from 'popmotion'
 import { Mesh } from 'three'
+import { useWindowResize } from '@/hooks/useWindowResize'
+import { Text } from '@react-three/drei'
 
-const color = '#111111'
+const color = '#eeeeee'
 
-const Icosahedron = () => (
-  <mesh rotation-x={0.35}>
-    <icosahedronGeometry args={[1, 0]} />
-    <meshBasicMaterial wireframe color={color} />
-  </mesh>
-)
+function HelloWorldText() {
+  return (
+    <Text
+      color={color}
+      position={[0, 0, 0]}
+      fontSize={0.6}
+      font='/fonts/Inter/Inter-Bold.ttf'
+    >
+      COOPER SAYE
+    </Text>
+  )
+}
 
-const Star = ({ p }: { p: number }) => {
+function Star({ p }: { p: number }) {
   const ref = useRef<Mesh>(null)
 
   useLayoutEffect(() => {
-    const distance = mix(2, 3.5, Math.random())
+    const distance = mix(2.5, 3, Math.random())
     const yAngle = mix(
-      degreesToRadians(80),
-      degreesToRadians(100),
+      degreesToRadians(15),
+      degreesToRadians(165),
       Math.random()
     )
     const xAngle = degreesToRadians(360) * p
@@ -31,34 +39,39 @@ const Star = ({ p }: { p: number }) => {
   return (
     <mesh ref={ref}>
       <boxGeometry args={[0.05, 0.05, 0.05]} />
-      <meshBasicMaterial wireframe color={color} />
+      <meshBasicMaterial
+        wireframe
+        color={color}
+        transparent={true}
+        opacity={0.1}
+      />
     </mesh>
   )
 }
 
-function Scene({ numStars = 100 }) {
+function Scene({ numStars = 200 }) {
   const gl = useThree((state) => state.gl)
   const { scrollYProgress } = useScroll()
-  console.log(scrollYProgress)
   const yAngle = useTransform(
     scrollYProgress,
     [0, 1],
-    [0.001, degreesToRadians(180)]
+    [degreesToRadians(90), degreesToRadians(180)]
   )
-  const distance = useTransform(scrollYProgress, [0, 1], [10, 3])
+  const distance = useTransform(scrollYProgress, [0, 1], [5.5, 30])
   const time = useTime()
 
   useFrame(({ camera }) => {
     camera.position.setFromSphericalCoords(
       distance.get(),
       yAngle.get(),
-      time.get() * 0.0005
+      time.get() * 0.0003
     )
     camera.updateProjectionMatrix()
     camera.lookAt(0, 0, 0)
   })
 
   useLayoutEffect(() => gl.setPixelRatio(0.3))
+  useWindowResize(() => gl.setPixelRatio(0.3))
 
   const stars = []
   for (let i = 0; i < numStars; i++) {
@@ -66,19 +79,22 @@ function Scene({ numStars = 100 }) {
   }
 
   return (
-    <>
-      <Icosahedron />
+    <Fragment>
       {stars}
-    </>
+      <HelloWorldText />
+    </Fragment>
   )
 }
 
 export function Globe() {
+  const { scrollYProgress } = useScroll()
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
+
   return (
-    <div className={styles.container}>
+    <motion.div className={styles.container} style={{ opacity }}>
       <Canvas gl={{ antialias: false }}>
         <Scene />
       </Canvas>
-    </div>
+    </motion.div>
   )
 }
