@@ -4,4 +4,21 @@
   right: 0;
   top: 0;
   height: 100lvh;
+
+  > .arrowUp,
+  > .arrowDown {
+    position: fixed;
+    left: 50%;
+    color: #eeeeee;
+    width: 64px;
+    height: 64px;
+  }
+
+  > .arrowUp {
+    top: 0svh;
+  }
+
+  > .arrowDown {
+    top: 100svh;
+  }
 }

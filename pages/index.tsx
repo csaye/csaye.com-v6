@@ -74,9 +74,6 @@ export default function Index() {
         <motion.div className={styles.underline} style={{ scaleX: scaleC }} />
         <p>University of Michigan</p>
       </motion.div>
-      <motion.div style={{ opacity: footerOpacity }} className={styles.footer}>
-        <h1>Cooper Saye</h1>
-      </motion.div>
     </div>
   )
 }
