@@ -8,17 +8,6 @@ const color = '#eeeeee'
 
 const scrollRange = [0, 0.2]
 
-function HelloWorldText() {
-  return (
-    <Center>
-      <Text3D font='/fonts/Inter/Inter_Bold.json' position={[0, 0, 0]}>
-        Cooper Saye
-        <meshBasicMaterial wireframe color={color} />
-      </Text3D>
-    </Center>
-  )
-}
-
 function Scene() {
   const { scrollYProgress } = useScroll()
   const xAngle = useTransform(scrollYProgress, scrollRange, [
@@ -43,7 +32,14 @@ function Scene() {
     camera.lookAt(0, 0, 0)
   })
 
-  return <HelloWorldText />
+  return (
+    <Center>
+      <Text3D font='/fonts/Inter_Bold.json' position={[0, 0, 0]}>
+        Cooper Saye
+        <meshBasicMaterial wireframe color={color} />
+      </Text3D>
+    </Center>
+  )
 }
 
 export function Globe() {

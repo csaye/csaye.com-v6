@@ -1,28 +1,29 @@
 $circle-size: 40px;
 
 .container {
+  height: 1000vh;
+
   > .background {
     position: fixed;
     inset: 0;
+    z-index: -1;
   }
 
-  > .heroSection {
-    height: 200vh;
+  > .section {
+    > h1 {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
-  > .rampSection {
-    height: 200vh;
-  }
-
-  > .contrarySection {
-    height: 200vh;
-  }
-
-  > .michiganSection {
-    height: 200vh;
-  }
-
-  > .footerSection {
-    height: 200vh;
+  > .footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #eeeeee;
+    position: fixed;
+    inset: 0;
   }
 }
