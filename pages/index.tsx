@@ -6,7 +6,7 @@ const intervalA = [0.15, 0.25, 0.35, 0.45]
 const intervalB = [0.35, 0.45, 0.55, 0.65]
 const intervalC = [0.55, 0.65, 0.75, 0.85]
 
-const topInterval = ['100%', '50%', '50%', '0%']
+const topInterval = ['100lvh', '50lvh', '50lvh', '0lvh']
 const opacityInterval = [0, 1, 1, 0]
 
 export default function Index() {
