@@ -2,6 +2,11 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import styles from '@/styles/pages/Index.module.scss'
 import { Globe } from '@/components/Globe'
 
+const emptyColor = '#111111'
+const rampColor = '#e7f055'
+const contraryColor = '#356bf6'
+const michiganColor = '#0b2749'
+
 const intervalA = [0.15, 0.25, 0.35, 0.45]
 const intervalB = [0.35, 0.45, 0.55, 0.65]
 const intervalC = [0.55, 0.65, 0.75, 0.85]
@@ -13,8 +18,17 @@ export default function Index() {
   const { scrollYProgress } = useScroll()
   const background = useTransform(
     scrollYProgress,
-    [0.1, 0.3, 0.5, 0.7, 0.9],
-    ['#111111', '#e7f055', '#356bf6', '#0b2749', '#111111']
+    [0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85],
+    [
+      emptyColor,
+      rampColor,
+      rampColor,
+      contraryColor,
+      contraryColor,
+      michiganColor,
+      michiganColor,
+      emptyColor,
+    ]
   )
 
   const topA = useTransform(scrollYProgress, intervalA, topInterval)

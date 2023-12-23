@@ -1,10 +1,9 @@
 import styles from './styles.module.scss'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { useTransform, useScroll, motion, easeOut, clamp } from 'framer-motion'
-import { degreesToRadians } from 'popmotion'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { useTransform, useScroll, motion } from 'framer-motion'
 import { Center, Text3D } from '@react-three/drei'
 import { useState } from 'react'
-import { useWindowResize } from '@/hooks/useWindowResize'
+import { degreesToRadians } from '@/utils/degreesToRadians'
 
 const color = '#eeeeee'
 
@@ -22,9 +21,7 @@ function Scene() {
     degreesToRadians(90),
     degreesToRadians(0),
   ])
-  const distance = useTransform(scrollYProgress, scrollRange, [5, 30], {
-    ease: easeOut,
-  })
+  const distance = useTransform(scrollYProgress, scrollRange, [5, 30])
 
   useFrame(({ camera }) => {
     camera.position.setFromSphericalCoords(
