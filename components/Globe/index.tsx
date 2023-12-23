@@ -1,13 +1,23 @@
 import styles from './styles.module.scss'
 import { Canvas, useThree, useFrame } from '@react-three/fiber'
-import { useRef, useLayoutEffect, Fragment } from 'react'
-import { useTransform, useScroll, useTime, motion } from 'framer-motion'
+import { useRef, useLayoutEffect, Fragment, RefObject } from 'react'
+import {
+  useTransform,
+  useScroll,
+  useTime,
+  motion,
+  easeIn,
+  easeOut,
+  easeInOut,
+} from 'framer-motion'
 import { degreesToRadians, progress, mix } from 'popmotion'
 import { Mesh } from 'three'
 import { useWindowResize } from '@/hooks/useWindowResize'
 import { Text } from '@react-three/drei'
 
 const color = '#eeeeee'
+
+const scrollRange = [0, 0.5]
 
 function HelloWorldText() {
   return (
@@ -52,12 +62,13 @@ function Star({ p }: { p: number }) {
 function Scene({ numStars = 200 }) {
   const gl = useThree((state) => state.gl)
   const { scrollYProgress } = useScroll()
-  const yAngle = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [degreesToRadians(90), degreesToRadians(180)]
-  )
-  const distance = useTransform(scrollYProgress, [0, 1], [5.5, 30])
+  const yAngle = useTransform(scrollYProgress, scrollRange, [
+    degreesToRadians(90),
+    degreesToRadians(180),
+  ])
+  const distance = useTransform(scrollYProgress, scrollRange, [5.5, 30], {
+    ease: easeOut,
+  })
   const time = useTime()
 
   useFrame(({ camera }) => {
@@ -88,7 +99,7 @@ function Scene({ numStars = 200 }) {
 
 export function Globe() {
   const { scrollYProgress } = useScroll()
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
+  const opacity = useTransform(scrollYProgress, scrollRange, [1, 0])
 
   return (
     <motion.div className={styles.container} style={{ opacity }}>

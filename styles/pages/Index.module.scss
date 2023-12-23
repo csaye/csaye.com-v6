@@ -1,3 +1,22 @@
+$circle-size: 40px;
+
 .container {
-  height: 500vh;
+  > .globeContainer {
+    height: 500vh;
+  }
+
+  > .bodyContainer {
+    height: 500vh;
+
+    > .circle {
+      height: calc($circle-size * 2);
+      width: calc($circle-size * 2);
+      background: #fff;
+      z-index: 10;
+      position: fixed;
+      left: calc(50% - $circle-size);
+      top: calc(50% - $circle-size);
+      border-radius: 50%;
+    }
+  }
 }
