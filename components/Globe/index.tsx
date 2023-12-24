@@ -2,7 +2,7 @@ import styles from './styles.module.scss'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useTransform, useScroll, motion } from 'framer-motion'
 import { Center, Text3D } from '@react-three/drei'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { degreesToRadians } from '@/utils/degreesToRadians'
 import ArrowDown from '@/public/icons/ArrowDown'
 
@@ -19,21 +19,22 @@ function Scene() {
   const [size] = useState(Math.min(1, window.innerWidth / 1000))
 
   const { scrollYProgress } = useScroll()
+  const distance = useTransform(scrollYProgress, scrollRange, [5, 10])
+
   const xAngle = useTransform(scrollYProgress, scrollRange, [
     degreesToRadians(0),
-    degreesToRadians(540),
+    degreesToRadians(360),
   ])
   const yAngle = useTransform(scrollYProgress, scrollRange, [
     degreesToRadians(90),
-    degreesToRadians(0),
+    degreesToRadians(180),
   ])
-  const distance = useTransform(scrollYProgress, scrollRange, [5, 30])
 
   useFrame(({ camera }) => {
     camera.position.setFromSphericalCoords(
       distance.get(),
       yAngle.get(),
-      xAngle.get()
+      degreesToRadians(0)
     )
     camera.updateProjectionMatrix()
     camera.lookAt(0, 0, 0)
@@ -41,9 +42,11 @@ function Scene() {
 
   return (
     <Center>
+      <ambientLight />
+      <directionalLight position={[0, 0, 5]} />
       <Text3D font='/fonts/Inter_Bold.json' position={[0, 0, 0]} size={size}>
         Cooper Saye
-        <meshBasicMaterial wireframe color={color} />
+        <meshStandardMaterial color={color} />
       </Text3D>
     </Center>
   )
@@ -68,7 +71,7 @@ export function Globe() {
     return (
       <motion.div
         className={styles.links}
-        style={{ scale }}
+        // style={{ scale }}
         transformTemplate={(_, transform) =>
           `translate(-50%, -50%) ${transform}`
         }
