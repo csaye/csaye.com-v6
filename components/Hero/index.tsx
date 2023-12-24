@@ -16,13 +16,13 @@ import { IconLink } from '../IconLink'
 const color = '#eeeeee'
 
 function NameText() {
-  const epsilon = 0.0025
+  const epsilon = 0.025
 
   const { scrollYProgress } = useScroll()
 
-  const wipeA = useTransform(scrollYProgress, [0, 0.05], ['0%', '100%'])
-  const wipeB = useTransform(scrollYProgress, [0.05, 0.1], ['0%', '100%'])
-  const wipeC = useTransform(scrollYProgress, [0.1, 0.15], ['0%', '100%'])
+  const wipeA = useTransform(scrollYProgress, [0, 0.05], [0, 1 + epsilon])
+  const wipeB = useTransform(scrollYProgress, [0.05, 0.1], [0, 1 + epsilon])
+  const wipeC = useTransform(scrollYProgress, [0.1, 0.15], [0, 1 + epsilon])
 
   const [backgrounds, setBackgrounds] = useState(getBackgrounds())
 
@@ -45,7 +45,7 @@ function NameText() {
       <motion.h1 style={{ background: backgrounds[3] }}>
         College Student
       </motion.h1>
-      {/* <motion.h1 style={{ background: backgrounds[4] }}>Cooper Saye</motion.h1> */}
+      <motion.h1 style={{ background: backgrounds[4] }}>Cooper Saye</motion.h1>
     </Fragment>
   )
 
@@ -53,19 +53,39 @@ function NameText() {
     const a = wipeA.get()
     const b = wipeB.get()
     const c = wipeC.get()
-    // console.log(['0%', a, b, c, d, '100%'])
 
     return [
-      colorGradient(a, '100%'),
-      colorGradient(b, a),
-      colorGradient(c, b),
-      colorGradient('0%', c),
-      // colorGradient('100%', '100%'),
-      // `linear-gradient(to right, transparent, transparent ${progB}, ${color} ${progB}, ${color} ${progA}, transparent ${progA}, transparent)`,
+      colorGradient(a, 1),
+      colorGradient(b, a - epsilon),
+      colorGradient(c, b - epsilon),
+      colorGradient(0, c - epsilon),
+      `linear-gradient(to right,
+        transparent,
+
+        transparent ${(c - epsilon) * 100}%,
+        ${color} ${(c - epsilon) * 100}%,
+        ${color} ${c * 100}%,
+        transparent ${c * 100}%,
+
+        transparent ${(b - epsilon) * 100}%,
+        ${color} ${(b - epsilon) * 100}%,
+        ${color} ${b * 100}%,
+        transparent ${b * 100}%,
+
+        transparent ${(a - epsilon) * 100}%,
+        ${color} ${(a - epsilon) * 100}%,
+        ${color} ${a * 100}%,
+        transparent ${a * 100}%,
+        
+        transparent
+)`,
     ]
 
-    function colorGradient(start: string, end: string) {
-      return `linear-gradient(to right, transparent, transparent ${start}, ${color} ${start}, ${color} ${end}, transparent ${end}, transparent) text`
+    function colorGradient(start: number, end: number) {
+      const pa = `${start * 100}%`
+      const pb = `${end * 100}%`
+
+      return `linear-gradient(to right, transparent, transparent ${pa}, ${color} ${pa}, ${color} ${pb}, transparent ${pb}, transparent) text`
     }
   }
 }

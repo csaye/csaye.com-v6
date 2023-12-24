@@ -14,24 +14,10 @@
     color: transparent;
     width: clamp(calc(603px / 2), calc(603vw / 10), 603px);
     text-align: center;
+    font-size: clamp(calc(64px / 2), calc(64vw / 10), 64px);
 
-    &:nth-of-type(1) {
-      font-size: clamp(calc(96px / 2), calc(96vw / 10), 96px);
-    }
-
-    &:nth-of-type(2) {
-      font-size: clamp(calc(66px / 2), calc(66vw / 10), 66px);
-    }
-
-    &:nth-of-type(3) {
-      font-size: clamp(calc(76px / 2), calc(76vw / 10), 76px);
-    }
-
-    &:nth-of-type(4) {
-      font-size: clamp(calc(75px / 2), calc(75vw / 10), 75px);
-    }
-
-    &:nth-of-type(5) {
+    &:first-of-type,
+    &:last-of-type {
       font-size: clamp(calc(96px / 2), calc(96vw / 10), 96px);
     }
   }
