@@ -19,16 +19,11 @@ function NameText() {
   const epsilon = 0.0025
 
   const { scrollYProgress } = useScroll()
-  const progressA = useTransform(
-    scrollYProgress,
-    [0, 0.15 - epsilon],
-    ['0%', '100%']
-  )
-  const progressB = useTransform(
-    scrollYProgress,
-    [epsilon, 0.15],
-    ['0%', '100%']
-  )
+
+  const wipeA = useTransform(scrollYProgress, [0, 0.05], ['0%', '100%'])
+  const wipeB = useTransform(scrollYProgress, [0.05, 0.1], ['0%', '100%'])
+  const wipeC = useTransform(scrollYProgress, [0.1, 0.15], ['0%', '100%'])
+
   const [backgrounds, setBackgrounds] = useState(getBackgrounds())
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
@@ -36,24 +31,42 @@ function NameText() {
     else setTimeout(() => setBackgrounds(getBackgrounds()))
   })
 
+  console.log(backgrounds)
+
   return (
     <Fragment>
       <motion.h1 style={{ background: backgrounds[0] }}>Cooper Saye</motion.h1>
       <motion.h1 style={{ background: backgrounds[1] }}>
-        Engineer, Venture, Student
+        Software Engineer
       </motion.h1>
-      <motion.h1 style={{ background: backgrounds[2] }}>Cooper Saye</motion.h1>
+      <motion.h1 style={{ background: backgrounds[2] }}>
+        Venture Partner
+      </motion.h1>
+      <motion.h1 style={{ background: backgrounds[3] }}>
+        College Student
+      </motion.h1>
+      {/* <motion.h1 style={{ background: backgrounds[4] }}>Cooper Saye</motion.h1> */}
     </Fragment>
   )
 
   function getBackgrounds() {
-    const progA = progressA.get()
-    const progB = progressB.get()
+    const a = wipeA.get()
+    const b = wipeB.get()
+    const c = wipeC.get()
+    // console.log(['0%', a, b, c, d, '100%'])
+
     return [
-      `linear-gradient(to right, transparent, transparent ${progA}, ${color} ${progA}, ${color}) text`,
-      `linear-gradient(to right, ${color}, ${color} ${progB}, transparent ${progB}, transparent) text`,
-      `linear-gradient(to right, transparent, transparent ${progB}, ${color} ${progB}, ${color} ${progA}, transparent ${progA}, transparent)`,
+      colorGradient(a, '100%'),
+      colorGradient(b, a),
+      colorGradient(c, b),
+      colorGradient('0%', c),
+      // colorGradient('100%', '100%'),
+      // `linear-gradient(to right, transparent, transparent ${progB}, ${color} ${progB}, ${color} ${progA}, transparent ${progA}, transparent)`,
     ]
+
+    function colorGradient(start: string, end: string) {
+      return `linear-gradient(to right, transparent, transparent ${start}, ${color} ${start}, ${color} ${end}, transparent ${end}, transparent) text`
+    }
   }
 }
 

@@ -32,7 +32,7 @@ $michigan: #f7cb46;
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    pointer-events: none;
+    max-width: 600px;
 
     > .underline {
       top: 0;
@@ -40,11 +40,17 @@ $michigan: #f7cb46;
       right: 0;
       height: 4px;
       transform-origin: 0%;
-      margin: 8px 0;
+      margin: 12px 0;
     }
 
     > p {
       font-weight: 500;
+      margin: 16px 0;
+      line-height: 28px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
   }
 
