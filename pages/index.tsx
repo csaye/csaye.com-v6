@@ -12,13 +12,8 @@ import {
   michiganColor,
   rampColor,
 } from '@/utils/colors'
-
-const intervalA = [0.15, 0.25, 0.35, 0.45]
-const intervalB = [0.35, 0.45, 0.55, 0.65]
-const intervalC = [0.55, 0.65, 0.75, 0.85]
-
-const topInterval = ['100lvh', '50lvh', '50lvh', '0lvh']
-const opacityInterval = [0, 1, 1, 0]
+import { useSectionStyle } from '@/utils/useSectionStyle'
+import { useSmartOpacity } from '@/utils/useSmartOpacity'
 
 const color = '#eeeeee'
 const epsilon = 0.0001
@@ -40,110 +35,100 @@ export default function Index() {
     ]
   )
 
-  const topA = useTransform(scrollYProgress, intervalA, topInterval)
-  const opacityA = useTransform(scrollYProgress, intervalA, opacityInterval)
-  const topB = useTransform(scrollYProgress, intervalB, topInterval)
-  const opacityB = useTransform(scrollYProgress, intervalB, opacityInterval)
-  const topC = useTransform(scrollYProgress, intervalC, topInterval)
-  const opacityC = useTransform(scrollYProgress, intervalC, opacityInterval)
-
   const scaleA = useTransform(scrollYProgress, [0.25, 0.35], [0, 1])
   const scaleB = useTransform(scrollYProgress, [0.45, 0.55], [0, 1])
   const scaleC = useTransform(scrollYProgress, [0.65, 0.75], [0, 1])
 
-  const footerOpacity = useTransform(scrollYProgress, [0.85, 0.95], [0, 1])
-  const footerZ = useTransform(
-    scrollYProgress,
-    [0, 0.85 - epsilon, 0.85],
-    [-10, -10, 0]
-  )
-  const scaleFooter = useTransform(scrollYProgress, [0.85, 0.95], [0, 1])
-
   const heroOpacity = useTransform(scrollYProgress, [0.15, 0.25], [1, 0])
-  const heroZ = useTransform(
-    scrollYProgress,
-    [0.25, 0.25 + epsilon, 1],
-    [0, -10, -10]
-  )
+  const footerOpacity = useTransform(scrollYProgress, [0.85, 0.95], [0, 1])
+  const scaleFooter = useTransform(scrollYProgress, [0.85, 0.95], [0, 1])
 
   return (
     <div className={styles.container}>
       <motion.div className={styles.background} style={{ background }} />
-      <motion.div
-        className={styles.hero}
-        style={{ opacity: heroOpacity, zIndex: heroZ }}
-      >
+      <motion.div className={styles.hero} style={useSmartOpacity(heroOpacity)}>
         <Hero />
       </motion.div>
       <motion.div
-        className={styles.rampSection}
-        style={{ top: topA, opacity: opacityA }}
+        className={styles.outerSection}
+        style={useSectionStyle([0.15, 0.25, 0.35, 0.45])}
       >
-        <h1>Software Engineer, Ramp</h1>
-        <motion.div className={styles.underline} style={{ scaleX: scaleA }} />
-        <p>
-          <LineLink href='https://ramp.com/'>Ramp</LineLink> is the ultimate
-          platform for modern finance teams. Founded in 2019, Ramp powers the
-          fastest-growing corporate card and bill payment platform in America,
-          enabling tens of billions of dollars in purchases each year.
-        </p>
-        <p>
-          I’m a software engineer at Ramp, where I’ve contributed to{' '}
-          <LineLink href='https://ramp.com/bill-pay'>Bill Pay</LineLink>,{' '}
-          <LineLink href='https://ramp.com/vendor-management'>
-            Vendor Management
-          </LineLink>
-          ,{' '}
-          <LineLink href='https://ramp.com/intelligence'>
-            Price Intelligence
-          </LineLink>
-          , <LineLink href='https://ramp.com/procurement'>Procurement</LineLink>
-          , and more.
-        </p>
+        <motion.div className={styles.rampSection}>
+          <h1>Software Engineer, Ramp</h1>
+          <motion.div className={styles.underline} style={{ scaleX: scaleA }} />
+          <p>
+            <LineLink href='https://ramp.com/'>Ramp</LineLink> is the ultimate
+            platform for modern finance teams. Founded in 2019, Ramp powers the
+            fastest-growing corporate card and bill payment platform in America,
+            enabling tens of billions of dollars in purchases each year.
+          </p>
+          <p>
+            I’m a software engineer at Ramp, where I’ve contributed to{' '}
+            <LineLink href='https://ramp.com/bill-pay'>Bill Pay</LineLink>,{' '}
+            <LineLink href='https://ramp.com/vendor-management'>
+              Vendor Management
+            </LineLink>
+            ,{' '}
+            <LineLink href='https://ramp.com/intelligence'>
+              Price Intelligence
+            </LineLink>
+            ,{' '}
+            <LineLink href='https://ramp.com/procurement'>Procurement</LineLink>
+            , and more.
+          </p>
+        </motion.div>
       </motion.div>
       <motion.div
-        className={styles.contrarySection}
-        style={{ top: topB, opacity: opacityB }}
+        className={styles.outerSection}
+        style={useSectionStyle([0.35, 0.45, 0.55, 0.65])}
       >
-        <h1>Venture Partner, Contrary</h1>
-        <motion.div className={styles.underline} style={{ scaleX: scaleB }} />
-        <p>
-          I’m a{' '}
-          <LineLink href='https://contrary.com/blog/class-of-2024'>
-            venture partner
-          </LineLink>{' '}
-          at <LineLink href='https://contrary.com/'>Contrary</LineLink>, the
-          venture capital firm that backs the bold. The firm has helped create
-          more than $10 billion in value through investments in companies
-          including Ramp, Anduril, Zepto, and{' '}
-          <LineLink href='https://contrary.com/companies'>others</LineLink>.
-        </p>
-        <p>
-          As a venture partner for the University of Michigan, I host events,
-          meet with founders, and help source the next generation of exceptional
-          companies.
-        </p>
+        <motion.div className={styles.contrarySection}>
+          <h1>Venture Partner, Contrary</h1>
+          <motion.div className={styles.underline} style={{ scaleX: scaleB }} />
+          <p>
+            I’m a{' '}
+            <LineLink href='https://contrary.com/blog/class-of-2024'>
+              venture partner
+            </LineLink>{' '}
+            at <LineLink href='https://contrary.com/'>Contrary</LineLink>, the
+            venture capital firm that backs the bold. The firm has helped create
+            more than $10 billion in value through investments in companies
+            including Ramp, Anduril, Zepto, and{' '}
+            <LineLink href='https://contrary.com/companies'>others</LineLink>.
+          </p>
+          <p>
+            As a venture partner for the University of Michigan, I host events,
+            meet with founders, and help source the next generation of
+            exceptional companies.
+          </p>
+        </motion.div>
       </motion.div>
       <motion.div
-        className={styles.michiganSection}
-        style={{ top: topC, opacity: opacityC }}
+        className={styles.outerSection}
+        style={useSectionStyle([0.55, 0.65, 0.75, 0.85])}
       >
-        <h1>Computer Science, Michigan</h1>
-        <motion.div className={styles.underline} style={{ scaleX: scaleC }} />
-        <p>
-          I’m currently studying computer science with a minor in mathematics at
-          the{' '}
-          <LineLink href='https://umich.edu/'>University of Michigan</LineLink>.
-          On campus, you can find me helping out at{' '}
-          <LineLink href='https://michhackers.com/'>Michigan Hackers</LineLink>,
-          Michigan’s largest tech club, or{' '}
-          <LineLink href='https://v1michigan.com/'>V1 Michigan</LineLink>, our
-          premier community for student builders.
-        </p>
+        <motion.div className={styles.michiganSection}>
+          <h1>Computer Science, Michigan</h1>
+          <motion.div className={styles.underline} style={{ scaleX: scaleC }} />
+          <p>
+            I’m currently studying computer science with a minor in mathematics
+            at the{' '}
+            <LineLink href='https://umich.edu/'>
+              University of Michigan
+            </LineLink>
+            . On campus, you can find me helping out at{' '}
+            <LineLink href='https://michhackers.com/'>
+              Michigan Hackers
+            </LineLink>
+            , Michigan’s largest tech club, or{' '}
+            <LineLink href='https://v1michigan.com/'>V1 Michigan</LineLink>, our
+            premier community for student builders.
+          </p>
+        </motion.div>
       </motion.div>
       <motion.div
         className={styles.footer}
-        style={{ opacity: footerOpacity, zIndex: footerZ }}
+        style={useSmartOpacity(footerOpacity)}
       >
         <div className={styles.footerCenter}>
           <h1>Hi, I’m Cooper!</h1>

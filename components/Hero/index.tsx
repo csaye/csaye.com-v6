@@ -31,8 +31,6 @@ function NameText() {
     else setTimeout(() => setBackgrounds(getBackgrounds()))
   })
 
-  console.log(backgrounds)
-
   return (
     <Fragment>
       <motion.h1 style={{ background: backgrounds[0] }}>Cooper Saye</motion.h1>

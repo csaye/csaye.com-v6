@@ -9,10 +9,11 @@
   justify-content: center;
 
   > h1 {
+    white-space: nowrap;
     position: absolute;
     z-index: 10;
     color: transparent;
-    width: clamp(calc(603px / 2), calc(603vw / 10), 603px);
+    width: clamp(calc(620px / 2), calc(620vw / 10), 620px);
     text-align: center;
     font-size: clamp(calc(64px / 2), calc(64vw / 10), 64px);
 

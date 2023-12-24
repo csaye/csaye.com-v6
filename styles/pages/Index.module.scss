@@ -7,7 +7,6 @@ $michigan: #f7cb46;
   height: 1000lvh;
 
   h1 {
-    white-space: nowrap;
     font-weight: 800;
   }
 
@@ -24,57 +23,68 @@ $michigan: #f7cb46;
     position: fixed;
   }
 
-  > .rampSection,
-  > .contrarySection,
-  > .michiganSection {
+  > .outerSection {
     position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100lvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    max-width: 600px;
+    pointer-events: none;
 
-    > .underline {
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      transform-origin: 0%;
-      margin: 12px 0;
-    }
+    > .rampSection,
+    > .contrarySection,
+    > .michiganSection {
+      min-width: 0;
+      max-width: 500px;
+      margin: 0 32px;
+      pointer-events: all;
 
-    > p {
-      font-weight: 500;
-      margin: 16px 0;
-      line-height: 28px;
+      > .underline {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        transform-origin: 0%;
+        margin: 12px 0;
+      }
 
-      &:last-of-type {
-        margin-bottom: 0;
+      > p {
+        font-weight: 500;
+        margin: 16px 0;
+        line-height: 28px;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
       }
     }
-  }
 
-  > .rampSection {
-    color: $ramp;
+    > .rampSection {
+      color: $ramp;
 
-    > .underline {
-      background: $ramp;
+      > .underline {
+        background: $ramp;
+      }
     }
-  }
 
-  > .contrarySection {
-    color: $contrary;
+    > .contrarySection {
+      color: $contrary;
 
-    > .underline {
-      background: $contrary;
+      > .underline {
+        background: $contrary;
+      }
     }
-  }
 
-  > .michiganSection {
-    color: $michigan;
+    > .michiganSection {
+      color: $michigan;
 
-    > .underline {
-      background: $michigan;
+      > .underline {
+        background: $michigan;
+      }
     }
   }
 
