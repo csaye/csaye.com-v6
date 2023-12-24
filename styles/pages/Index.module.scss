@@ -1,3 +1,4 @@
+$max-mdm: 767.98px;
 $circle-size: 40px;
 $ramp: #1c1b18;
 $contrary: #fefcff;
@@ -39,9 +40,21 @@ $michigan: #f7cb46;
     > .contrarySection,
     > .michiganSection {
       min-width: 0;
-      max-width: 500px;
+      max-width: 600px;
       margin: 0 32px;
       pointer-events: all;
+
+      @media (max-width: $max-mdm) {
+        max-width: 500px;
+      }
+
+      > h1 {
+        margin-top: 16px;
+
+        @media (max-width: $max-mdm) {
+          font-size: 24px;
+        }
+      }
 
       > .underline {
         top: 0;
@@ -50,6 +63,10 @@ $michigan: #f7cb46;
         height: 4px;
         transform-origin: 0%;
         margin: 12px 0;
+
+        @media (max-width: $max-mdm) {
+          height: 3px;
+        }
       }
 
       > p {
@@ -59,6 +76,11 @@ $michigan: #f7cb46;
 
         &:last-of-type {
           margin-bottom: 0;
+        }
+
+        @media (max-width: $max-mdm) {
+          font-size: 14px;
+          line-height: 24px;
         }
       }
     }
@@ -112,7 +134,7 @@ $michigan: #f7cb46;
         right: 0;
         height: 2px;
         background: #eeeeee;
-        margin: 24px 0;
+        margin: 20px 0;
       }
 
       > .underlineA {
@@ -125,13 +147,12 @@ $michigan: #f7cb46;
 
       > p {
         font-weight: 400;
-        line-height: 30px;
-        margin: 16px 0;
+        line-height: 28px;
+        margin: 12px 0;
 
-        @media (max-width: 767.98px) {
+        @media (max-width: $max-mdm) {
           font-size: 14px;
-          line-height: 26px;
-          margin: 12px 0;
+          line-height: 24px;
         }
       }
 

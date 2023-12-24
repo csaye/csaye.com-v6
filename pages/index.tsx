@@ -16,7 +16,6 @@ import { useSectionStyle } from '@/utils/useSectionStyle'
 import { useSmartOpacity } from '@/utils/useSmartOpacity'
 
 const color = '#eeeeee'
-const epsilon = 0.0001
 
 export default function Index() {
   const { scrollYProgress } = useScroll()
