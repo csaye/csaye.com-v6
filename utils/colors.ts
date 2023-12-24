@@ -1,0 +1,5 @@
+export const emptyColor = '#111111'
+export const rampColor = '#e7f055'
+export const contraryColor = '#356bf6'
+export const michiganColor = '#0b2749'
+export const michiganAltColor = '#f7cb46'
