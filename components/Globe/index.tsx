@@ -8,14 +8,17 @@ import {
   useAnimate,
 } from 'framer-motion'
 import { Center, Text3D } from '@react-three/drei'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import { degreesToRadians } from '@/utils/degreesToRadians'
 import ArrowDown from '@/public/icons/ArrowDown'
 import ArrowUp from '@/public/icons/ArrowUp'
+import Github from '@/public/icons/Github'
+import Linkedin from '@/public/icons/Linkedin'
+import Twitter from '@/public/icons/Twitter'
 
 const color = '#eeeeee'
 
-const scrollRange = [0, 0.2, 0.8, 1]
+const scrollRange = [0, 0.2]
 
 function Scene() {
   const [size] = useState(Math.min(1, window.innerWidth / 1000))
@@ -24,16 +27,12 @@ function Scene() {
   const xAngle = useTransform(scrollYProgress, scrollRange, [
     degreesToRadians(0),
     degreesToRadians(540),
-    degreesToRadians(540),
-    degreesToRadians(0),
   ])
   const yAngle = useTransform(scrollYProgress, scrollRange, [
     degreesToRadians(90),
     degreesToRadians(0),
-    degreesToRadians(0),
-    degreesToRadians(90),
   ])
-  const distance = useTransform(scrollYProgress, scrollRange, [5, 30, 30, 5])
+  const distance = useTransform(scrollYProgress, scrollRange, [5, 30])
 
   useFrame(({ camera }) => {
     camera.position.setFromSphericalCoords(
@@ -57,46 +56,69 @@ function Scene() {
 
 export function Globe() {
   const { scrollYProgress } = useScroll()
-  const opacity = useTransform(scrollYProgress, scrollRange, [1, 0, 0, 1])
-  const upArrowOpacity = useTransform(
-    scrollYProgress,
-    scrollRange,
-    [0, 0, 0, 1]
-  )
-  const downArrowOpacity = useTransform(
-    scrollYProgress,
-    scrollRange,
-    [1, 0, 0, 0]
-  )
+  const opacity = useTransform(scrollYProgress, scrollRange, [1, 0])
+  const scale = useTransform(scrollYProgress, scrollRange, [1, 0])
+  // const upArrowOpacity = useTransform(
+  //   scrollYProgress,
+  //   scrollRange,
+  //   [0, 0, 1, 1]
+  // )
+  // const downArrowOpacity = useTransform(
+  //   scrollYProgress,
+  //   scrollRange,
+  //   [1, 1, 0, 0]
+  // )
 
   return (
     <motion.div className={styles.container} style={{ opacity }}>
-      {renderUpArrow()}
+      {renderLinks()}
+      {renderDownArrow()}
       <Canvas gl={{ antialias: false }}>
         <Scene />
       </Canvas>
-      {renderDownArrow()}
     </motion.div>
   )
 
-  function renderUpArrow() {
+  function renderLinks() {
     return (
       <motion.div
-        className={styles.arrowUp}
-        animate={{ translateY: ['25%', '0%', '25%'] }}
-        transformTemplate={(_, transform) => `translateX(-50%) ${transform}`}
-        transition={{
-          duration: 3,
-          ease: 'easeInOut',
-          times: [0, 0.5, 1],
-          repeat: Infinity,
-        }}
-        style={{ opacity: upArrowOpacity }}
+        className={styles.links}
+        style={{ scale }}
+        transformTemplate={(_, transform) =>
+          `translate(-50%, -50%) ${transform}`
+        }
       >
-        <ArrowUp fill={color} />
+        <PopLink href='https://github.com/csaye'>
+          <Github fill={color} />
+        </PopLink>
+        <PopLink href='https://www.linkedin.com/in/coopersaye/'>
+          <Linkedin fill={color} />
+        </PopLink>
+        <PopLink href='https://twitter.com/CooperComputer'>
+          <Twitter fill={color} />
+        </PopLink>
       </motion.div>
     )
   }
+
+  // function renderUpArrow() {
+  //   return (
+  //     <motion.div
+  //       className={styles.arrowUp}
+  //       animate={{ translateY: ['25%', '0%', '25%'] }}
+  //       transformTemplate={(_, transform) => `translateX(-50%) ${transform}`}
+  //       transition={{
+  //         duration: 3,
+  //         ease: 'easeInOut',
+  //         times: [0, 0.5, 1],
+  //         repeat: Infinity,
+  //       }}
+  //       style={{ opacity: upArrowOpacity }}
+  //     >
+  //       <ArrowUp fill={color} />
+  //     </motion.div>
+  //   )
+  // }
 
   function renderDownArrow() {
     return (
@@ -110,10 +132,23 @@ export function Globe() {
           times: [0, 0.5, 1],
           repeat: Infinity,
         }}
-        style={{ opacity: downArrowOpacity }}
       >
         <ArrowDown fill={color} />
       </motion.div>
     )
   }
+}
+
+function PopLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <motion.a
+      whileHover={{ scale: 1.2 }}
+      whileTap={{ scale: 0.9 }}
+      href={href}
+      target='_blank'
+      rel='noopener noreferrer'
+    >
+      {children}
+    </motion.a>
+  )
 }
