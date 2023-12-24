@@ -6,6 +6,11 @@ $michigan: #f7cb46;
 .container {
   height: 1000lvh;
 
+  h1 {
+    white-space: nowrap;
+    font-weight: 800;
+  }
+
   > .background {
     position: fixed;
     left: 0;
@@ -24,11 +29,6 @@ $michigan: #f7cb46;
     transform: translate(-50%, -50%);
     text-align: center;
     pointer-events: none;
-
-    > h1 {
-      white-space: nowrap;
-      font-weight: 800;
-    }
 
     > .underline {
       top: 0;
@@ -83,12 +83,39 @@ $michigan: #f7cb46;
     > .footerCenter {
       max-width: 400px;
 
-      > h1 {
-        margin-bottom: 12px;
+      > .underlineA,
+      > .underlineB {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #eeeeee;
+        margin: 24px 0;
+      }
+
+      > .underlineA {
+        transform-origin: 0%;
+      }
+
+      > .underlineB {
+        transform-origin: 100%;
       }
 
       > p {
+        font-weight: 300;
         line-height: 32px;
+        margin: 24px 0;
+      }
+
+      > .links {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+
+        > a {
+          width: 48px;
+          height: 48px;
+        }
       }
     }
   }

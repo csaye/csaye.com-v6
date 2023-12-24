@@ -2,13 +2,14 @@ import styles from './styles.module.scss'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useTransform, useScroll, motion } from 'framer-motion'
 import { Center, Text3D } from '@react-three/drei'
-import { ReactNode, useState } from 'react'
+import { useState } from 'react'
 import { degreesToRadians } from '@/utils/degreesToRadians'
 import ArrowDown from '@/public/icons/ArrowDown'
 
 import Github from '@/public/icons/Github'
 import Linkedin from '@/public/icons/Linkedin'
 import Twitter from '@/public/icons/Twitter'
+import { IconLink } from '../IconLink'
 
 const color = '#eeeeee'
 
@@ -72,15 +73,15 @@ export function Globe() {
           `translate(-50%, -50%) ${transform}`
         }
       >
-        <PopLink href='https://github.com/csaye'>
+        <IconLink href='https://github.com/csaye'>
           <Github fill={color} />
-        </PopLink>
-        <PopLink href='https://www.linkedin.com/in/coopersaye/'>
+        </IconLink>
+        <IconLink href='https://www.linkedin.com/in/coopersaye/'>
           <Linkedin fill={color} />
-        </PopLink>
-        <PopLink href='https://twitter.com/CooperComputer'>
+        </IconLink>
+        <IconLink href='https://twitter.com/CooperComputer'>
           <Twitter fill={color} />
-        </PopLink>
+        </IconLink>
       </motion.div>
     )
   }
@@ -102,18 +103,4 @@ export function Globe() {
       </motion.div>
     )
   }
-}
-
-function PopLink({ href, children }: { href: string; children: ReactNode }) {
-  return (
-    <motion.a
-      whileHover={{ scale: 1.2 }}
-      whileTap={{ scale: 0.9 }}
-      href={href}
-      target='_blank'
-      rel='noopener noreferrer'
-    >
-      {children}
-    </motion.a>
-  )
 }
