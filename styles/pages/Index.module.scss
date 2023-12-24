@@ -85,7 +85,9 @@ $michigan: #f7cb46;
     text-align: center;
 
     > .footerCenter {
+      min-width: 0;
       max-width: 500px;
+      margin: 0 32px;
 
       > .underlineA,
       > .underlineB {
@@ -107,8 +109,14 @@ $michigan: #f7cb46;
 
       > p {
         font-weight: 400;
-        line-height: 32px;
+        line-height: 30px;
         margin: 16px 0;
+
+        @media (max-width: 767.98px) {
+          font-size: 14px;
+          line-height: 26px;
+          margin: 12px 0;
+        }
       }
 
       > .links {

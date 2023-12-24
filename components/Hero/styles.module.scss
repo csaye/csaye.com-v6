@@ -12,37 +12,33 @@
     position: absolute;
     z-index: 10;
     color: transparent;
+    width: clamp(calc(603px / 2), calc(603vw / 10), 603px);
 
-    &:first-of-type {
-      font-size: 96px;
+    &:nth-of-type(1) {
+      font-size: clamp(calc(96px / 2), calc(96vw / 10), 96px);
     }
 
     &:nth-of-type(2) {
-      font-size: 45px;
+      font-size: clamp(calc(45px / 2), calc(45vw / 10), 45px);
+    }
+
+    &:nth-of-type(3) {
+      font-size: clamp(calc(96px / 2), calc(96vw / 10), 96px);
     }
   }
 
   > .links {
+    position: absolute;
     display: flex;
     gap: 6px;
-    position: fixed;
     left: 50%;
     z-index: 10;
-    top: 65lvh;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%)
+      translateY(clamp(calc(96px / 2), calc(96vw / 10), 96px));
 
     > a {
-      width: 48px;
-      height: 48px;
-    }
-
-    @media (max-width: 767.98px) {
-      top: 60lvh;
-
-      > a {
-        width: 32px;
-        height: 32px;
-      }
+      width: clamp(calc(48px / 2), calc(48vw / 10), 48px);
+      height: clamp(calc(48px / 2), calc(48vw / 10), 48px);
     }
   }
 

@@ -16,7 +16,7 @@ import { IconLink } from '../IconLink'
 const color = '#eeeeee'
 
 function NameText() {
-  const epsilon = 0.005
+  const epsilon = 0.0025
 
   const { scrollYProgress } = useScroll()
   const progressA = useTransform(
@@ -42,6 +42,7 @@ function NameText() {
       <motion.h1 style={{ background: backgrounds[1] }}>
         Engineer, Venture, Student
       </motion.h1>
+      <motion.h1 style={{ background: backgrounds[2] }}>Cooper Saye</motion.h1>
     </Fragment>
   )
 
@@ -51,6 +52,7 @@ function NameText() {
     return [
       `linear-gradient(to right, transparent, transparent ${progA}, ${color} ${progA}, ${color}) text`,
       `linear-gradient(to right, ${color}, ${color} ${progB}, transparent ${progB}, transparent) text`,
+      `linear-gradient(to right, transparent, transparent ${progB}, ${color} ${progB}, ${color} ${progA}, transparent ${progA}, transparent)`,
     ]
   }
 }

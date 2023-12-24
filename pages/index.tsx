@@ -111,14 +111,14 @@ export default function Index() {
             style={{ scaleX: scaleFooter }}
           />
           <p>
-            I’m passionate about crafting and discovering delightful products.
+            I’m passionate about creating & discovering delightful products.
           </p>
           <p>
             I’m a software engineer at{' '}
             <LineLink href='https://ramp.com/' color={rampColor}>
               Ramp
             </LineLink>
-            , the ultimate platform for modern finance teams, where I have
+            , the ultimate platform for modern finance teams, where I’ve
             contributed to{' '}
             <LineLink href='https://ramp.com/bill-pay' color={rampColor}>
               Bill Pay
@@ -156,7 +156,7 @@ export default function Index() {
             <LineLink href='https://umich.edu/' color={michiganAltColor}>
               University of Michigan
             </LineLink>{' '}
-            studying computer science & mathematics. Find me below!
+            studying computer science & mathematics. Follow me below!
           </p>
           <motion.div
             className={styles.underlineB}
