@@ -1,17 +1,11 @@
 import styles from './styles.module.scss'
 import { Canvas, useFrame } from '@react-three/fiber'
-import {
-  useTransform,
-  useScroll,
-  motion,
-  useAnimation,
-  useAnimate,
-} from 'framer-motion'
+import { useTransform, useScroll, motion } from 'framer-motion'
 import { Center, Text3D } from '@react-three/drei'
 import { ReactNode, useState } from 'react'
 import { degreesToRadians } from '@/utils/degreesToRadians'
 import ArrowDown from '@/public/icons/ArrowDown'
-import ArrowUp from '@/public/icons/ArrowUp'
+
 import Github from '@/public/icons/Github'
 import Linkedin from '@/public/icons/Linkedin'
 import Twitter from '@/public/icons/Twitter'
@@ -58,16 +52,6 @@ export function Globe() {
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, scrollRange, [1, 0])
   const scale = useTransform(scrollYProgress, scrollRange, [1, 0])
-  // const upArrowOpacity = useTransform(
-  //   scrollYProgress,
-  //   scrollRange,
-  //   [0, 0, 1, 1]
-  // )
-  // const downArrowOpacity = useTransform(
-  //   scrollYProgress,
-  //   scrollRange,
-  //   [1, 1, 0, 0]
-  // )
 
   return (
     <motion.div className={styles.container} style={{ opacity }}>
@@ -100,25 +84,6 @@ export function Globe() {
       </motion.div>
     )
   }
-
-  // function renderUpArrow() {
-  //   return (
-  //     <motion.div
-  //       className={styles.arrowUp}
-  //       animate={{ translateY: ['25%', '0%', '25%'] }}
-  //       transformTemplate={(_, transform) => `translateX(-50%) ${transform}`}
-  //       transition={{
-  //         duration: 3,
-  //         ease: 'easeInOut',
-  //         times: [0, 0.5, 1],
-  //         repeat: Infinity,
-  //       }}
-  //       style={{ opacity: upArrowOpacity }}
-  //     >
-  //       <ArrowUp fill={color} />
-  //     </motion.div>
-  //   )
-  // }
 
   function renderDownArrow() {
     return (

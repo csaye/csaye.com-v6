@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
 import styles from '@/styles/pages/Index.module.scss'
 import { Globe } from '@/components/Globe'
 
@@ -42,7 +42,8 @@ export default function Index() {
   const scaleB = useTransform(scrollYProgress, [0.45, 0.55], [0, 1])
   const scaleC = useTransform(scrollYProgress, [0.65, 0.75], [0, 1])
 
-  const footerOpacity = useTransform(scrollYProgress, [0.9, 1], [0, 1])
+  const footerOpacity = useTransform(scrollYProgress, [0.85, 0.95], [0, 1])
+  const footerZ = useTransform(scrollYProgress, [0, 0.85, 0.85], [-10, -10, 0])
 
   return (
     <div className={styles.container}>
@@ -73,6 +74,19 @@ export default function Index() {
         <h1>Computer Science</h1>
         <motion.div className={styles.underline} style={{ scaleX: scaleC }} />
         <p>University of Michigan</p>
+      </motion.div>
+      <motion.div
+        className={styles.footer}
+        style={{ opacity: footerOpacity, zIndex: footerZ }}
+      >
+        <div className={styles.footerCenter}>
+          <h1>Hi, I’m Cooper!</h1>
+          <p>
+            I’m a software engineer at <u>Ramp</u>, venture partner at Contrary,
+            and student at the University of Michigan studying computer science
+            & mathematics.
+          </p>
+        </div>
       </motion.div>
     </div>
   )
