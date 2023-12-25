@@ -27,6 +27,7 @@ function NameText() {
   const [backgrounds, setBackgrounds] = useState(getBackgrounds())
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    if (scrollYProgress.get() > 0.25) return
     if (latest) setBackgrounds(getBackgrounds())
     else setTimeout(() => setBackgrounds(getBackgrounds()))
   })
