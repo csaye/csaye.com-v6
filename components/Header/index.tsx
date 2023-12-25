@@ -2,7 +2,7 @@ import { useSmartOpacity } from '@/utils/useSmartOpacity'
 import styles from './styles.module.scss'
 import { motion, useCycle, useScroll, useTransform } from 'framer-motion'
 import { smoothScrollTo } from '@/utils/smoothScrollTo'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 
 const scrollTime = 2500
 
