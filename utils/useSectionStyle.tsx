@@ -1,7 +1,7 @@
 import { useScroll, useTransform } from 'framer-motion'
 import { useSmartOpacity } from './useSmartOpacity'
 
-const topInterval = ['50lvh', '0lvh', '0lvh', '-50lvh']
+const topInterval = ['50%', '0%', '0%', '-50%']
 const opacityInterval = [0, 1, 1, 0]
 
 export function useSectionStyle(

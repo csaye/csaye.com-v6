@@ -5,6 +5,7 @@ $contrary: #fefcff;
 $michigan: #f7cb46;
 
 .container {
+  height: 1000vh;
   height: 1000lvh;
 
   h1 {
@@ -16,6 +17,7 @@ $michigan: #f7cb46;
     left: 0;
     right: 0;
     top: 0;
+    height: 100vh;
     height: 100lvh;
     z-index: -1;
   }
@@ -29,6 +31,7 @@ $michigan: #f7cb46;
     left: 0;
     right: 0;
     top: 0;
+    height: 100vh;
     height: 100lvh;
     display: flex;
     align-items: center;
@@ -115,6 +118,7 @@ $michigan: #f7cb46;
     left: 0;
     right: 0;
     top: 0;
+    height: 100vh;
     height: 100lvh;
     color: #eeeeee;
     display: flex;

@@ -83,7 +83,7 @@ function NameText() {
       const pa = `${start * 100}%`
       const pb = `${end * 100}%`
 
-      return `linear-gradient(to right, transparent, transparent ${pa}, ${color} ${pa}, ${color} ${pb}, transparent ${pb}, transparent) text`
+      return `linear-gradient(to right, transparent, transparent ${pa}, ${color} ${pa}, ${color} ${pb}, transparent ${pb}, transparent)`
     }
   }
 }

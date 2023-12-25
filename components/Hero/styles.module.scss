@@ -3,6 +3,7 @@
   left: 0;
   right: 0;
   top: 0;
+  height: 100vh;
   height: 100lvh;
   display: flex;
   align-items: center;
@@ -20,6 +21,10 @@
     &:first-of-type,
     &:last-of-type {
       font-size: clamp(calc(96px / 2), calc(96vw / 10), 96px);
+    }
+
+    &:not(:last-of-type) {
+      background-clip: text !important;
     }
   }
 
@@ -48,10 +53,11 @@
   }
 
   > .arrowUp {
-    top: 0svh;
+    top: 0;
   }
 
   > .arrowDown {
+    top: 100vh;
     top: 100svh;
   }
 }
