@@ -14,6 +14,7 @@ import {
 } from '@/utils/colors'
 import { useSectionStyle } from '@/utils/useSectionStyle'
 import { useSmartOpacity } from '@/utils/useSmartOpacity'
+import { useScrollTransform } from '@/utils/useScrollTransform'
 
 const color = '#eeeeee'
 
@@ -34,18 +35,13 @@ export default function Index() {
     ]
   )
 
-  const scaleA = useTransform(scrollYProgress, [0.25, 0.35], [0, 1])
-  const scaleB = useTransform(scrollYProgress, [0.45, 0.55], [0, 1])
-  const scaleC = useTransform(scrollYProgress, [0.65, 0.75], [0, 1])
-
-  const heroOpacity = useTransform(scrollYProgress, [0.15, 0.25], [1, 0])
-  const footerOpacity = useTransform(scrollYProgress, [0.85, 0.95], [0, 1])
-  const scaleFooter = useTransform(scrollYProgress, [0.85, 0.95], [0, 1])
-
   return (
     <div className={styles.container}>
       <motion.div className={styles.background} style={{ background }} />
-      <motion.div className={styles.hero} style={useSmartOpacity(heroOpacity)}>
+      <motion.div
+        className={styles.hero}
+        style={useSmartOpacity(useScrollTransform([0.15, 0.25], [1, 0]))}
+      >
         <Hero />
       </motion.div>
       <motion.div
@@ -54,7 +50,10 @@ export default function Index() {
       >
         <motion.div className={styles.rampSection}>
           <h1>Software Engineer, Ramp</h1>
-          <motion.div className={styles.underline} style={{ scaleX: scaleA }} />
+          <motion.div
+            className={styles.underline}
+            style={{ scaleX: useScrollTransform([0.25, 0.35]) }}
+          />
           <p>
             <LineLink href='https://ramp.com/'>Ramp</LineLink> is the ultimate
             platform for modern finance teams. Founded in 2019, Ramp powers the
@@ -83,7 +82,10 @@ export default function Index() {
       >
         <motion.div className={styles.contrarySection}>
           <h1>Venture Partner, Contrary</h1>
-          <motion.div className={styles.underline} style={{ scaleX: scaleB }} />
+          <motion.div
+            className={styles.underline}
+            style={{ scaleX: useScrollTransform([0.45, 0.55]) }}
+          />
           <p>
             I’m a{' '}
             <LineLink href='https://contrary.com/blog/class-of-2024'>
@@ -108,7 +110,10 @@ export default function Index() {
       >
         <motion.div className={styles.michiganSection}>
           <h1>Computer Science, Michigan</h1>
-          <motion.div className={styles.underline} style={{ scaleX: scaleC }} />
+          <motion.div
+            className={styles.underline}
+            style={{ scaleX: useScrollTransform([0.65, 0.75]) }}
+          />
           <p>
             I’m currently studying computer science with a minor in mathematics
             at the{' '}
@@ -127,21 +132,24 @@ export default function Index() {
       </motion.div>
       <motion.div
         className={styles.footer}
-        style={useSmartOpacity(footerOpacity)}
+        style={useSmartOpacity(useScrollTransform([0.85, 0.95]))}
       >
         <div className={styles.footerCenter}>
           <h1>Hi, I’m Cooper!</h1>
           <motion.div
             className={styles.underlineA}
-            style={{ scaleX: scaleFooter }}
+            style={{ scaleX: useScrollTransform([0.86, 0.93]) }}
           />
           <p>
             I’m passionate about creating & discovering delightful products.
           </p>
+          <p>
+            I typically work in React, JavaScript/TypeScript, Python, and C++.
+          </p>
           <p>Follow me below!</p>
           <motion.div
             className={styles.underlineB}
-            style={{ scaleX: scaleFooter }}
+            style={{ scaleX: useScrollTransform([0.93, 1]) }}
           />
           <div className={styles.links}>
             <IconLink href='https://github.com/csaye'>
