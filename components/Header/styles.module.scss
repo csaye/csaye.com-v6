@@ -1,0 +1,41 @@
+.container {
+  color: #eeeeee;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > .smallLogo {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  > .bigLogo {
+    @media (max-width: 767.98px) {
+      display: none;
+    }
+  }
+
+  > .links {
+    padding-right: 8px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    > p {
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 20px;
+
+      &:hover {
+        text-decoration-style: dashed;
+      }
+    }
+  }
+}

@@ -15,6 +15,7 @@ import {
 import { useSectionStyle } from '@/utils/useSectionStyle'
 import { useSmartOpacity } from '@/utils/useSmartOpacity'
 import { useScrollTransform } from '@/utils/useScrollTransform'
+import { Header } from '@/components/Header'
 
 const color = '#eeeeee'
 
@@ -38,6 +39,7 @@ export default function Index() {
   return (
     <div className={styles.container}>
       <motion.div className={styles.background} style={{ background }} />
+      <Header />
       <motion.div
         className={styles.hero}
         style={useSmartOpacity(useScrollTransform([0.15, 0.25], [1, 0]))}
