@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import styles from '@/styles/pages/Index.module.scss'
+import styles from '@/styles/pages/index.module.scss'
 import { Hero } from '@/components/Hero'
 import { ReactNode } from 'react'
 import { IconLink } from '@/components/IconLink'

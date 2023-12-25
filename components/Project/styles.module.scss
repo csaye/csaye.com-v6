@@ -1,0 +1,49 @@
+.container {
+  margin: 20px;
+  background: #fff;
+  width: 360px;
+  box-shadow: 0 0 4px #999;
+  overflow: hidden;
+  transition: 0.2s;
+  max-width: calc(100vw - 80px);
+
+  @media (min-width: 576px) {
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  > .image {
+    width: 360px;
+    height: 220px;
+    position: relative;
+    cursor: pointer;
+    max-width: calc(100vw - 80px);
+  }
+
+  > .content {
+    padding: 24px;
+
+    > h1 {
+      font-weight: 800;
+      margin: -4px 0 0 0;
+    }
+
+    > .icons {
+      color: #999;
+      font-size: 14px;
+      margin: 12px 0;
+    }
+
+    > .about {
+      margin: 12px 0;
+    }
+
+    > .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}

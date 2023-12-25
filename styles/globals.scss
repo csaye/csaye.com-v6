@@ -1,3 +1,10 @@
+:root {
+  --header: 80px;
+  --highlight: #2196f3;
+  --hightlightHover: #3f51b5;
+  --background: #fff;
+}
+
 * {
   box-sizing: border-box;
   text-wrap: pretty;
@@ -28,4 +35,49 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+.wipe {
+  padding: 10px 20px;
+  margin: 10px;
+  display: inline-block;
+  font-weight: 400;
+  position: relative;
+  transition: 0.3s;
+  z-index: 1;
+
+  &:after {
+    position: absolute;
+    transition: 0.3s;
+    content: '';
+    width: 0;
+    bottom: 0;
+    height: 100%;
+    background: #fff;
+    right: 0;
+    left: auto;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: #000;
+
+    &:after {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  &.button {
+    border: 1px solid #000;
+
+    &:after {
+      background: var(--highlight);
+    }
+
+    &:hover {
+      color: #fff;
+      border-color: var(--highlight);
+    }
+  }
 }
