@@ -145,7 +145,7 @@ export default function Index() {
             typically work in React, JavaScript/TypeScript, Python, and C++.
           </p>
           <Link href='/projects' className='link'>
-            View a collection of my personal projects &#x2197;
+            View a collection of my personal projects
           </Link>
           <p>Follow me at the links below!</p>
           <motion.div
