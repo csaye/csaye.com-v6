@@ -16,6 +16,7 @@ import { useSectionStyle } from '@/utils/useSectionStyle'
 import { useSmartOpacity } from '@/utils/useSmartOpacity'
 import { useScrollTransform } from '@/utils/useScrollTransform'
 import { Header } from '@/components/Header'
+import Link from 'next/link'
 
 const color = '#eeeeee'
 
@@ -143,12 +144,13 @@ export default function Index() {
             style={{ scaleX: useScrollTransform([0.86, 0.93]) }}
           />
           <p>
-            I’m passionate about creating & discovering delightful products.
+            I’m passionate about creating & discovering delightful products. I
+            typically work in React, JavaScript/TypeScript, Python, and C++.
           </p>
-          <p>
-            I typically work in React, JavaScript/TypeScript, Python, and C++.
-          </p>
-          <p>Follow me below!</p>
+          <Link href='/projects' className='link'>
+            View a collection of my personal projects &#x2197;
+          </Link>
+          <p>Follow me at the links below!</p>
           <motion.div
             className={styles.underlineB}
             style={{ scaleX: useScrollTransform([0.93, 1]) }}
@@ -176,11 +178,7 @@ function LineLink({ href, children }: { href: string; children: ReactNode }) {
       href={href}
       target='_blank'
       rel='noopener noreferrer'
-      style={{
-        textDecoration: 'underline',
-        textDecorationStyle: 'solid',
-      }}
-      whileHover={{ textDecorationStyle: 'dashed' }}
+      className='link'
       transition={{ duration: 0 }}
     >
       {children}

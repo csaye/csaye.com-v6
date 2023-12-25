@@ -28,14 +28,10 @@
     align-items: center;
     gap: 16px;
 
-    > p {
+    > p,
+    > a {
       cursor: pointer;
-      text-decoration: underline;
       font-size: 20px;
-
-      &:hover {
-        text-decoration-style: dashed;
-      }
     }
   }
 }

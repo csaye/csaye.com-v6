@@ -37,6 +37,14 @@ h6 {
   margin: 0;
 }
 
+.link {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration-style: dashed;
+  }
+}
+
 .wipe {
   padding: 10px 20px;
   margin: 10px;

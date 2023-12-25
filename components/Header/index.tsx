@@ -3,6 +3,7 @@ import styles from './styles.module.scss'
 import { motion, useCycle, useScroll, useTransform } from 'framer-motion'
 import { smoothScrollTo } from '@/utils/smoothScrollTo'
 import { useRef } from 'react'
+import Link from 'next/link'
 
 const scrollTime = 2500
 
@@ -43,13 +44,21 @@ export function Header() {
       </h1>
       <h1 className={styles.smallLogo}>CS</h1>
       <div className={styles.links}>
+        <Link className='link' href='/projects'>
+          Projects
+        </Link>
         <motion.p
+          className='link'
           style={{ display: bottomDisplay }}
           onClick={() => scrollToBottom()}
         >
           To Bottom &darr;
         </motion.p>
-        <motion.p style={{ display: topDisplay }} onClick={() => scrollToTop()}>
+        <motion.p
+          className='link'
+          style={{ display: topDisplay }}
+          onClick={() => scrollToTop()}
+        >
           To Top &uarr;
         </motion.p>
       </div>
