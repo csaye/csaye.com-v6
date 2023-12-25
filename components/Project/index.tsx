@@ -23,9 +23,9 @@ export function Project({ project }: Props) {
           <Image
             src={`/img/projects/${image}`}
             layout='fill'
-            objectFit='cover'
             placeholder='blur'
             blurDataURL={`/img/projects/${image}`}
+            style={{ objectFit: 'cover' }}
             alt={image}
           />
         </a>

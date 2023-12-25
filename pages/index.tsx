@@ -90,11 +90,8 @@ export default function Index() {
             style={{ scaleX: useScrollTransform([0.45, 0.55]) }}
           />
           <p>
-            I’m a{' '}
-            <LineLink href='https://contrary.com/blog/class-of-2024'>
-              venture partner
-            </LineLink>{' '}
-            at <LineLink href='https://contrary.com/'>Contrary</LineLink>, the
+            I’m a venture partner at{' '}
+            <LineLink href='https://contrary.com/'>Contrary</LineLink>, the
             venture capital firm that backs the bold. The firm has helped create
             more than $10 billion in value through investments in companies
             including Ramp, Anduril, Zepto, and{' '}
