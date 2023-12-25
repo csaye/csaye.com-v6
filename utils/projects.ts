@@ -149,7 +149,7 @@ export const projects: Project[] = [
     image: 'deserted.png',
     buttons: [
       {
-        label: 'Available Now',
+        label: 'Try it out',
         link: 'https://csaye.itch.io/deserted',
       },
       {
@@ -175,13 +175,9 @@ export const projects: Project[] = [
     title: 'Megaphone',
     about:
       'A classroom communication forum for students and teachers. Won the Congressional App Challenge and was honored by Congressman Ted Lieu.',
-    link: 'https://www.themegaphone.net',
+    link: 'https://lieu.house.gov/media-center/press-releases/rep-lieu-honors-winners-annual-congressional-app-challenge-1',
     image: 'megaphone.png',
     buttons: [
-      {
-        label: 'Try it out',
-        link: 'https://www.themegaphone.net',
-      },
       {
         label: 'Press release',
         link: 'https://lieu.house.gov/media-center/press-releases/rep-lieu-honors-winners-annual-congressional-app-challenge-1',
@@ -228,13 +224,9 @@ export const projects: Project[] = [
     title: 'Devcomms',
     about:
       'Text chat with built-in developer widgets. Built to help coordinate teams of developers through a centralized tool.',
-    link: 'https://devcomms.vercel.app',
+    link: 'https://github.com/CodeConvoy/devcomms',
     image: 'devcomms2.png',
     buttons: [
-      {
-        label: 'Try it out',
-        link: 'https://devcomms.vercel.app',
-      },
       {
         label: 'GitHub',
         link: 'https://github.com/CodeConvoy/devcomms',
@@ -307,14 +299,10 @@ export const projects: Project[] = [
   {
     title: 'MapMake',
     about:
-      'A collaborative, online tilemap editor. Built to help coordinate team tilemap creation.',
-    link: 'https://csaye.com/mapmake',
+      'A collaborative, online tilemap editor. Built to help coordinate team tilemap creation for 2D games.',
+    link: 'https://github.com/csaye/mapmake',
     image: 'mapmake.png',
     buttons: [
-      {
-        label: 'Try it out',
-        link: 'https://csaye.com/mapmake',
-      },
       {
         label: 'GitHub',
         link: 'https://github.com/csaye/mapmake',
@@ -527,12 +515,12 @@ export const projects: Project[] = [
     title: 'SleekScript',
     about:
       'A pythonic, browser-based language that compiles to JavaScript. Inspired by CoffeeScript.',
-    link: 'https://csaye.com/sleekscript',
+    link: 'https://sleekscript.vercel.app',
     image: 'sleekscript.png',
     buttons: [
       {
         label: 'Try it out',
-        link: 'https://csaye.com/sleekscript',
+        link: 'https://sleekscript.vercel.app',
       },
       {
         label: 'GitHub',
@@ -581,13 +569,9 @@ export const projects: Project[] = [
     title: 'Devcomms Legacy',
     about:
       'Team communication and coordination all in one place. Old version of the project, written in vanilla React.',
-    link: 'https://devcomms.vercel.app',
+    link: 'https://github.com/csaye/devcomms-legacy',
     image: 'devcomms.png',
     buttons: [
-      {
-        label: 'Try it out',
-        link: 'https://devcomms.vercel.app',
-      },
       {
         label: 'GitHub',
         link: 'https://github.com/csaye/devcomms-legacy',
@@ -625,13 +609,9 @@ export const projects: Project[] = [
     title: 'Calendar',
     about:
       'Event scheduling in a simple interface. Uses Firebase for authentication and data storage.',
-    link: 'https://csaye.com/calendar',
+    link: 'https://github.com/csaye/calendar',
     image: 'calendar.png',
     buttons: [
-      {
-        label: 'Try it out',
-        link: 'https://csaye.com/calendar',
-      },
       {
         label: 'GitHub',
         link: 'https://github.com/csaye/calendar',
@@ -643,13 +623,9 @@ export const projects: Project[] = [
     title: 'SimpleStore',
     about:
       'Built to experiment with file storage. Features file uploading and folder creation. Uses Firebase for authentication and file storage.',
-    link: 'https://csaye.com/simple-store',
+    link: 'https://github.com/csaye/simple-store',
     image: 'storage.png',
     buttons: [
-      {
-        label: 'Try it out',
-        link: 'https://csaye.com/simple-store',
-      },
       {
         label: 'GitHub',
         link: 'https://github.com/csaye/simple-store',
@@ -693,13 +669,9 @@ export const projects: Project[] = [
     title: 'Widget Wall',
     about:
       'A webpage with a collection of useful widgets. Uses Firebase for backend and connects with several APIs, including Datamuse and Bit.ly.',
-    link: 'https://csaye.com/widget-wall',
+    link: 'https://github.com/csaye/widget-wall',
     image: 'widgets.png',
     buttons: [
-      {
-        label: 'Try it out',
-        link: 'https://csaye.com/widget-wall',
-      },
       {
         label: 'GitHub',
         link: 'https://github.com/csaye/widget-wall',
@@ -748,13 +720,9 @@ export const projects: Project[] = [
     title: 'Countdown Tracker',
     about:
       'A countdown tracker tool. Uses Firebase for the backend and features a toggleable background.',
-    link: 'https://csaye.com/countdown-tracker',
+    link: 'https://github.com/csaye/countdown-tracker',
     image: 'countdown2.png',
     buttons: [
-      {
-        label: 'Try it out',
-        link: 'https://csaye.com/countdown-tracker',
-      },
       {
         label: 'GitHub',
         link: 'https://github.com/csaye/countdown-tracker',
@@ -766,13 +734,9 @@ export const projects: Project[] = [
     title: 'Bicycle',
     about:
       'A minimalist social media placing its users first. My first major web project, uses Firebase for authentication and data storage.',
-    link: 'https://bicycle-social.vercel.app',
+    link: 'https://github.com/csaye/bicycle',
     image: 'bicycle.png',
     buttons: [
-      {
-        label: 'Try it out',
-        link: 'https://bicycle-social.vercel.app',
-      },
       {
         label: 'GitHub',
         link: 'https://github.com/csaye/bicycle',
@@ -784,13 +748,9 @@ export const projects: Project[] = [
     title: 'Playlist Bot',
     about:
       'Input your preferences to generate Spotify playlists. Uses the Spotify API to search songs and save playlists.',
-    link: 'https://csaye.com/playlist-bot',
+    link: 'https://github.com/csaye/playlist-bot',
     image: 'playlist.png',
     buttons: [
-      {
-        label: 'Try it out',
-        link: 'https://csaye.com/playlist-bot',
-      },
       {
         label: 'GitHub',
         link: 'https://github.com/csaye/playlist-bot',
@@ -802,13 +762,9 @@ export const projects: Project[] = [
     title: 'Ticket Tracker',
     about:
       'A ticket tracker tool. My first use of a database in web development, uses Firebase to store users and ticket data.',
-    link: 'https://csaye.com/ticket-tracker',
+    link: 'https://github.com/csaye/ticket-tracker',
     image: 'tickets.png',
     buttons: [
-      {
-        label: 'Try it out',
-        link: 'https://csaye.com/ticket-tracker',
-      },
       {
         label: 'GitHub',
         link: 'https://github.com/csaye/ticket-tracker',
@@ -829,24 +785,6 @@ export const projects: Project[] = [
       },
     ],
     icons: ['C#', 'Python', 'Java', 'C++', 'JavaScript'],
-  },
-  {
-    title: 'Jamming',
-    about:
-      'A Spotify playlist builder. My first usage of an API in an app, uses the Spotify API to search songs and save playlists.',
-    link: 'https://csaye.com/jamming',
-    image: 'jamming.png',
-    buttons: [
-      {
-        label: 'Try it out',
-        link: 'https://csaye.com/jamming',
-      },
-      {
-        label: 'GitHub',
-        link: 'https://github.com/csaye/jamming',
-      },
-    ],
-    icons: ['React', 'JavaScript', 'Spotify API', 'CSS', 'Atom'],
   },
   {
     title: 'Countdown',
