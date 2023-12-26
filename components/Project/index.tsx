@@ -14,9 +14,15 @@ export function Project({ project }: Props) {
     <motion.div
       className={styles.container}
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      whileInView={{
+        opacity: 1,
+        transition: { duration: 1 },
+      }}
       viewport={{ once: true, amount: 0.2 }}
+      whileHover={{
+        scale: 1.05,
+        transition: { duration: 0.2 },
+      }}
     >
       <div className={styles.image}>
         <a href={link} target='_blank' rel='noreferrer'>

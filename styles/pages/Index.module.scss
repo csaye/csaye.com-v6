@@ -12,15 +12,6 @@ $michigan: #f7cb46;
     font-weight: 800;
   }
 
-  > .background {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-  }
-
   > .hero {
     position: fixed;
   }
@@ -152,7 +143,8 @@ $michigan: #f7cb46;
         transform-origin: 100%;
       }
 
-      > p {
+      > p,
+      > a {
         font-weight: 500;
         margin: 16px 0;
         line-height: 28px;

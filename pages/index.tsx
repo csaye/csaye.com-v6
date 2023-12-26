@@ -1,7 +1,12 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from 'framer-motion'
 import styles from '@/styles/pages/index.module.scss'
 import { Hero } from '@/components/Hero'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { IconLink } from '@/components/IconLink'
 import Github from '@/public/icons/Github'
 import Linkedin from '@/public/icons/Linkedin'
@@ -37,9 +42,14 @@ export default function Index() {
     ]
   )
 
+  useMotionValueEvent(
+    background,
+    'change',
+    (val) => (document.body.style.background = val)
+  )
+
   return (
     <div className={styles.container}>
-      <motion.div className={styles.background} style={{ background }} />
       <Header />
       <motion.div
         className={styles.hero}
