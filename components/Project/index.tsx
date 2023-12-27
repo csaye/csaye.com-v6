@@ -25,13 +25,14 @@ export function Project({ project }: Props) {
       }}
     >
       <div className={styles.image}>
-        <a href={link} target='_blank' rel='noreferrer'>
+        <a href={link} target='_blank' rel='noopener noreferrer'>
           <Image
             src={`/img/projects/${image}`}
-            layout='fill'
             placeholder='blur'
             blurDataURL={`/img/projects/${image}`}
             style={{ objectFit: 'cover' }}
+            width='360'
+            height='220'
             alt={image}
           />
         </a>
@@ -47,7 +48,7 @@ export function Project({ project }: Props) {
                 className='wipe button'
                 href={button.link}
                 target='_blank'
-                rel='noreferrer'
+                rel='noopener noreferrer'
               >
                 <span>{button.label}</span>
               </a>
