@@ -18,16 +18,18 @@
   }
 
   > .content {
-    padding: 0 20px;
+    padding: 32px;
 
     > h1 {
       text-align: center;
-      margin: 32px 0 16px 0;
+      margin-bottom: 16px;
       font-size: 48px;
+      font-weight: 800;
     }
 
     > p {
       text-align: center;
+      font-weight: 400;
     }
 
     > .projectsWrapper {
@@ -35,9 +37,10 @@
       justify-content: center;
 
       > .projects {
-        margin: 20px;
+        margin: 32px;
         display: flex;
         flex-wrap: wrap;
+        gap: 32px;
         justify-content: center;
         max-width: 1300px;
       }
