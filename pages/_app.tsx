@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Fragment } from 'react'
 import { Inter } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -38,6 +39,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <main className={inter.className}>
         <Component {...pageProps} />
+        <Analytics />
       </main>
     </Fragment>
   )
