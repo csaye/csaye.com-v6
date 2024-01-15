@@ -8,6 +8,15 @@ $michigan: #f7cb46;
   height: 1000vh;
   height: 1000lvh;
 
+  > .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    transform-origin: left;
+  }
+
   h1 {
     font-weight: 800;
   }
@@ -42,7 +51,7 @@ $michigan: #f7cb46;
       }
 
       > h1 {
-        margin-top: 16px;
+        margin-top: 32px;
 
         @media (max-width: $max-mdm) {
           font-size: 24px;

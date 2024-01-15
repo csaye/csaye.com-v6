@@ -4,17 +4,21 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion'
-import styles from '@/styles/pages/index.module.scss'
+import styles from '@/styles/pages/Index.module.scss'
 import { Hero } from '@/components/Hero'
-import { ReactNode, useEffect } from 'react'
+import { ReactNode } from 'react'
 import { IconLink } from '@/components/IconLink'
 import Github from '@/public/icons/Github'
 import Linkedin from '@/public/icons/Linkedin'
 import Twitter from '@/public/icons/Twitter'
 import {
+  contraryAltColor,
   contraryColor,
+  emptyAltColor,
   emptyColor,
+  michiganAltColor,
   michiganColor,
+  rampAltColor,
   rampColor,
 } from '@/utils/colors'
 import { useSectionStyle } from '@/utils/useSectionStyle'
@@ -22,8 +26,6 @@ import { useSmartOpacity } from '@/utils/useSmartOpacity'
 import { useScrollTransform } from '@/utils/useScrollTransform'
 import { Header } from '@/components/Header'
 import Link from 'next/link'
-
-const color = '#eeeeee'
 
 export default function Index() {
   const { scrollYProgress } = useScroll()
@@ -42,6 +44,21 @@ export default function Index() {
     ]
   )
 
+  const progressColor = useTransform(
+    scrollYProgress,
+    [0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85],
+    [
+      emptyAltColor,
+      rampAltColor,
+      rampAltColor,
+      contraryAltColor,
+      contraryAltColor,
+      michiganAltColor,
+      michiganAltColor,
+      emptyAltColor,
+    ]
+  )
+
   useMotionValueEvent(
     background,
     'change',
@@ -51,6 +68,13 @@ export default function Index() {
   return (
     <div className={styles.container}>
       <Header />
+      <motion.div
+        className={styles.progress}
+        style={{
+          scaleX: useScrollTransform([0, 1]),
+          background: progressColor,
+        }}
+      />
       <motion.div
         className={styles.hero}
         style={useSmartOpacity(useScrollTransform([0.15, 0.25], [1, 0]))}
@@ -142,13 +166,13 @@ export default function Index() {
       </motion.div>
       <motion.div
         className={styles.footer}
-        style={useSmartOpacity(useScrollTransform([0.85, 0.95]))}
+        style={useSmartOpacity(useScrollTransform([0.825, 0.9]))}
       >
         <div className={styles.footerCenter}>
           <h1>Hi, I’m Cooper!</h1>
           <motion.div
             className={styles.underlineA}
-            style={{ scaleX: useScrollTransform([0.86, 0.93]) }}
+            style={{ scaleX: useScrollTransform([0.85, 0.925]) }}
           />
           <p>
             I’m passionate about creating & discovering delightful products. I
@@ -160,17 +184,17 @@ export default function Index() {
           <p>Follow me at the links below!</p>
           <motion.div
             className={styles.underlineB}
-            style={{ scaleX: useScrollTransform([0.93, 1]) }}
+            style={{ scaleX: useScrollTransform([0.925, 1]) }}
           />
           <div className={styles.links}>
             <IconLink href='https://github.com/csaye'>
-              <Github fill={color} />
+              <Github fill={emptyAltColor} />
             </IconLink>
             <IconLink href='https://www.linkedin.com/in/coopersaye/'>
-              <Linkedin fill={color} />
+              <Linkedin fill={emptyAltColor} />
             </IconLink>
             <IconLink href='https://twitter.com/CooperComputer'>
-              <Twitter fill={color} />
+              <Twitter fill={emptyAltColor} />
             </IconLink>
           </div>
         </div>

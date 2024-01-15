@@ -1,5 +1,8 @@
 export const emptyColor = '#111111'
+export const emptyAltColor = '#eeeeee'
 export const rampColor = '#e7f055'
+export const rampAltColor = '#1c1b18'
 export const contraryColor = '#356bf6'
+export const contraryAltColor = '#fefcff'
 export const michiganColor = '#0b2749'
 export const michiganAltColor = '#f7cb46'

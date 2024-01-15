@@ -13,7 +13,7 @@ export default function Projects() {
       </div>
       <div className={styles.content}>
         <h1>Projects</h1>
-        <p>Assorted apps, games, & experiments I’ve built over the years.</p>
+        <p>Assorted apps, games, and experiments I’ve built over the years.</p>
         <div className={styles.projectsWrapper}>
           <div className={styles.projects}>
             {projects.map((project, i) => (
