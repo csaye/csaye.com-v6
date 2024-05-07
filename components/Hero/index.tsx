@@ -107,7 +107,7 @@ export function Hero() {
         <IconLink href='https://www.linkedin.com/in/coopersaye/'>
           <Linkedin fill={color} />
         </IconLink>
-        <IconLink href='https://twitter.com/CooperComputer'>
+        <IconLink href='https://twitter.com/cooperjsaye'>
           <Twitter fill={color} />
         </IconLink>
       </motion.div>
