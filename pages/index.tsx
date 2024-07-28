@@ -193,7 +193,7 @@ export default function Index() {
             <IconLink href='https://www.linkedin.com/in/coopersaye/'>
               <Linkedin fill={emptyAltColor} />
             </IconLink>
-            <IconLink href='https://twitter.com/CooperComputer'>
+            <IconLink href='https://twitter.com/cooperjsaye'>
               <Twitter fill={emptyAltColor} />
             </IconLink>
           </div>
